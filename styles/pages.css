@@ -22,7 +22,9 @@
   right: 0;
   width: 50%;
   height: 100%;
-  background-image: url('../assets/hero-bg.png');
+  background-image: 
+    radial-gradient(circle at 100% 100%, #00d2ff 0%, rgba(0, 210, 255, 0.55) 30%, rgba(0, 210, 255, 0.18) 65%, rgba(0, 210, 255, 0) 100%),
+    url('../assets/hero-bg.png');
   background-size: cover;
   background-position: center;
   clip-path: polygon(15% 0, 100% 0, 100% 100%, 0% 100%);
@@ -175,16 +177,19 @@
 }
 
 .ticker__item {
-  font-weight: 700;
-  font-size: var(--text-xl);
-  color: var(--aeron-navy);
-  opacity: 0.4;
+  font-weight: 800;
+  font-size: var(--text-2xl);
+  color: var(--aeron-blue);
+  opacity: 0.9;
   white-space: nowrap;
   padding: 0 3rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
 }
 
 .ticker__item:hover {
   opacity: 1;
+  color: var(--aeron-navy);
 }
 
 .ticker__dot {
@@ -228,13 +233,33 @@
 
 .about-snapshot__image {
   position: relative;
+  border-radius: var(--border-radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-lg);
 }
 
 .about-snapshot__image img {
-  border-radius: var(--border-radius-lg);
-  box-shadow: var(--shadow-lg);
+  display: block;
   width: 100%;
-  height: auto;
+  height: 100%;
+  object-fit: cover;
+  transition: transform var(--transition-normal);
+}
+
+.about-snapshot__image:hover img {
+  transform: scale(1.04);
+}
+
+.about-snapshot__image::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at 100% 100%, #00d2ff 0%, rgba(0, 210, 255, 0.55) 30%, rgba(0, 210, 255, 0.18) 65%, rgba(0, 210, 255, 0) 100%);
+  pointer-events: none;
+  z-index: 2;
 }
 
 @media (max-width: 992px) {
@@ -288,7 +313,7 @@
 
 .product-card__image .product-card__brand {
   font-size: 2.5rem;
-  font-weight: 300;
+  font-weight: 700;
   color: var(--aeron-blue);
   text-align: center;
   line-height: 1.3;
@@ -316,6 +341,11 @@
 .product-card__tags {
   margin-top: auto;
   padding-top: var(--space-md);
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  align-content: flex-start;
+  gap: 0.5rem;
 }
 
 @media (max-width: 768px) {
@@ -367,11 +397,35 @@
   direction: ltr;
 }
 
-.service-block__visual img {
+.service-block__visual {
+  position: relative;
   border-radius: var(--border-radius-lg);
+  overflow: hidden;
   box-shadow: var(--shadow-lg);
+}
+
+.service-block__visual img {
+  display: block;
   width: 100%;
-  height: auto;
+  height: 100%;
+  object-fit: cover;
+  transition: transform var(--transition-normal);
+}
+
+.service-block__visual:hover img {
+  transform: scale(1.04);
+}
+
+.service-block__visual::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at 100% 100%, #00d2ff 0%, rgba(0, 210, 255, 0.55) 30%, rgba(0, 210, 255, 0.18) 65%, rgba(0, 210, 255, 0) 100%);
+  pointer-events: none;
+  z-index: 2;
 }
 
 .service-block__features {
@@ -382,7 +436,9 @@
   display: flex;
   align-items: center;
   margin-bottom: 0.75rem;
-  font-size: var(--text-sm);
+  font-size: 0.9375rem;
+  line-height: 1.5;
+  color: var(--aeron-heading);
 }
 
 .service-block__feature::before {
@@ -459,7 +515,8 @@
 }
 
 .timeline__text {
-  line-height: 1.6;
+  line-height: 1.7;
+  font-size: var(--text-sm);
 }
 
 @media (max-width: 768px) {
@@ -620,11 +677,12 @@
 }
 
 .strength-item__label {
-  font-size: var(--text-sm);
+  font-size: 0.8125rem;
   font-weight: 600;
   color: var(--aeron-navy);
   text-transform: uppercase;
   letter-spacing: 0.05em;
+  line-height: 1.4;
 }
 
 @media (max-width: 992px) {
@@ -655,24 +713,46 @@
 
 .ticker-intro {
   text-align: center;
-  font-size: var(--text-xs);
+  font-size: 0.6875rem;
   text-transform: uppercase;
   letter-spacing: 0.15em;
   color: var(--aeron-text);
   opacity: 0.6;
   margin-bottom: var(--space-lg);
+  line-height: 1.4;
 }
 
 /* ── Timeline Image ────────────────────────────── */
 .timeline-image {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+  position: relative;
+  border-radius: var(--border-radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-lg);
+  height: 100%;
 }
 
 .timeline-image img {
-  border-radius: var(--border-radius-lg);
-  box-shadow: var(--shadow-md);
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform var(--transition-normal);
+}
+
+.timeline-image:hover img {
+  transform: scale(1.04);
+}
+
+.timeline-image::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at 100% 100%, #00d2ff 0%, rgba(0, 210, 255, 0.55) 30%, rgba(0, 210, 255, 0.18) 65%, rgba(0, 210, 255, 0) 100%);
+  pointer-events: none;
+  z-index: 2;
 }
 
 /* ── Contact Page ──────────────────────────────── */
@@ -687,6 +767,8 @@
 .form-intro {
   margin-bottom: var(--space-lg);
   color: var(--aeron-text);
+  font-size: var(--text-sm);
+  line-height: 1.6;
 }
 
 @media (max-width: 768px) {
@@ -704,25 +786,59 @@
 /* ── Supply Cards (Products Page) ──────────────── */
 .supply-card {
   text-align: center;
-  padding: var(--space-md);
+  padding: var(--space-lg);
   align-items: center;
+  justify-content: flex-start;
 }
 
 .supply-card__icon {
   width: 48px;
   height: 48px;
-  margin: 0 auto var(--space-sm);
+  margin: 0 auto var(--space-md);
   color: var(--aeron-blue);
+  flex-shrink: 0;
+  display: block;
 }
 
 .supply-card h4 {
   margin-bottom: var(--space-sm);
   text-align: center;
   width: 100%;
+  font-size: var(--text-xl);
+  line-height: 1.3;
 }
 
 .supply-card .card__text {
   text-align: center;
+  font-size: var(--text-sm);
+  line-height: 1.6;
+  margin: 0;
+}
+
+@media (max-width: 768px) {
+  .supply-card {
+    padding: var(--space-md);
+  }
+  
+  .supply-card__icon {
+    width: 44px;
+    height: 44px;
+  }
+  
+  .supply-card h4 {
+    font-size: var(--text-lg);
+  }
+}
+
+@media (max-width: 576px) {
+  .supply-card__icon {
+    width: 40px;
+    height: 40px;
+  }
+  
+  .supply-card h4 {
+    font-size: var(--text-base);
+  }
 }
 
 /* ── Certification Cards (Safety Page) ─────────── */
