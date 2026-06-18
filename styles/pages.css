@@ -22,14 +22,31 @@
   right: 0;
   width: 50%;
   height: 100%;
-  background-image: 
-    radial-gradient(circle at 100% 100%, #00d2ff 0%, rgba(0, 210, 255, 0.55) 30%, rgba(0, 210, 255, 0.18) 65%, rgba(0, 210, 255, 0) 100%),
-    url('../assets/hero-bg.png');
+  background-image: url('../assets/hero-bg.png');
   background-size: cover;
   background-position: center;
   clip-path: polygon(15% 0, 100% 0, 100% 100%, 0% 100%);
   z-index: 1;
   opacity: 0.95;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 50%;
+  height: 100%;
+  background: radial-gradient(circle at 100% 100%, #00d2ff 0%, rgba(0, 210, 255, 0.55) 30%, rgba(0, 210, 255, 0.18) 65%, rgba(0, 210, 255, 0) 100%);
+  clip-path: polygon(15% 0, 100% 0, 100% 100%, 0% 100%);
+  z-index: 2;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  pointer-events: none;
+}
+
+.hero:hover::before {
+  opacity: 0.55;
 }
 
 .hero__content {
@@ -61,6 +78,11 @@
   .hero::after {
     width: 100%;
     opacity: 0.15;
+    clip-path: none;
+  }
+  
+  .hero::before {
+    width: 100%;
     clip-path: none;
   }
   
@@ -243,11 +265,6 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform var(--transition-normal);
-}
-
-.about-snapshot__image:hover img {
-  transform: scale(1.04);
 }
 
 .about-snapshot__image::after {
@@ -260,6 +277,12 @@
   background: radial-gradient(circle at 100% 100%, #00d2ff 0%, rgba(0, 210, 255, 0.55) 30%, rgba(0, 210, 255, 0.18) 65%, rgba(0, 210, 255, 0) 100%);
   pointer-events: none;
   z-index: 2;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.about-snapshot__image:hover::after {
+  opacity: 0.55;
 }
 
 @media (max-width: 992px) {
@@ -409,11 +432,6 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform var(--transition-normal);
-}
-
-.service-block__visual:hover img {
-  transform: scale(1.04);
 }
 
 .service-block__visual::after {
@@ -426,6 +444,12 @@
   background: radial-gradient(circle at 100% 100%, #00d2ff 0%, rgba(0, 210, 255, 0.55) 30%, rgba(0, 210, 255, 0.18) 65%, rgba(0, 210, 255, 0) 100%);
   pointer-events: none;
   z-index: 2;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.service-block__visual:hover::after {
+  opacity: 0.55;
 }
 
 .service-block__features {
@@ -736,11 +760,6 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform var(--transition-normal);
-}
-
-.timeline-image:hover img {
-  transform: scale(1.04);
 }
 
 .timeline-image::after {
@@ -753,6 +772,12 @@
   background: radial-gradient(circle at 100% 100%, #00d2ff 0%, rgba(0, 210, 255, 0.55) 30%, rgba(0, 210, 255, 0.18) 65%, rgba(0, 210, 255, 0) 100%);
   pointer-events: none;
   z-index: 2;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.timeline-image:hover::after {
+  opacity: 0.55;
 }
 
 /* ── Contact Page ──────────────────────────────── */
