@@ -258,6 +258,7 @@
   border-radius: var(--border-radius-lg);
   overflow: hidden;
   box-shadow: var(--shadow-lg);
+  aspect-ratio: 4 / 3;
 }
 
 .about-snapshot__image img {
@@ -425,6 +426,7 @@
   border-radius: var(--border-radius-lg);
   overflow: hidden;
   box-shadow: var(--shadow-lg);
+  aspect-ratio: 4 / 3;
 }
 
 .service-block__visual img {
@@ -753,6 +755,7 @@
   overflow: hidden;
   box-shadow: var(--shadow-lg);
   height: 100%;
+  aspect-ratio: 4 / 3;
 }
 
 .timeline-image img {
