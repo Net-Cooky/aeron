@@ -754,8 +754,17 @@
   border-radius: var(--border-radius-lg);
   overflow: hidden;
   box-shadow: var(--shadow-lg);
-  height: 100%;
+  width: 100%;
   aspect-ratio: 4 / 3;
+}
+
+@media (min-width: 992px) {
+  .timeline-image {
+    max-width: 480px;
+    aspect-ratio: 4.3 / 4;
+    align-self: center;
+    justify-self: end;
+  }
 }
 
 .timeline-image img {
